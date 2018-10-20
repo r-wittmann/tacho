@@ -14,12 +14,9 @@ class AverageSpeedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(border: Border.all()),
-      child: Text(
-        '${getAverageSpeed().toStringAsFixed(1)} km/h',
-        style: TextStyle(fontSize: 36),
-      ),
+    return Text(
+      '${getAverageSpeed().toStringAsFixed(1)} km/h',
+      style: TextStyle(fontSize: 36),
     );
   }
 }
