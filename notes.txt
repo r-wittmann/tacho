@@ -1,0 +1,6 @@
+Eine Tour besteht aus:
+    id
+    tourStart:  Zeitpunkt des Starts
+    tourEnd:    Zeitpunkt des Endes
+    distance:   Die gefahrenen Kilometer
+    altitude:   Die zurückgelegten Höhenmeter
