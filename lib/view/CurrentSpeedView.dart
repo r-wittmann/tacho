@@ -7,21 +7,23 @@ class CurrentSpeedView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text(
-          (_currentSpeed * 3.6).toStringAsFixed(1),
-          style: TextStyle(
-            fontSize: 144,
-            color: Theme.of(context).primaryColor,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 96.0),
+      child: Column(
+        children: <Widget>[
+          Text(
+            (_currentSpeed * 3.6).toStringAsFixed(1),
+            style: TextStyle(
+              fontSize: 144,
+              color: Theme.of(context).primaryColor,
+            ),
           ),
-        ),
-        Text(
-          'km/h',
-          style: TextStyle(fontSize: 32),
-        ),
-        SizedBox(height: 36)
-      ],
+          Text(
+            'km/h',
+            style: TextStyle(fontSize: 32),
+          ),
+        ],
+      ),
     );
   }
 }

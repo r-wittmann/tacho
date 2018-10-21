@@ -104,7 +104,6 @@ class ContainerViewState extends State<ContainerView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           CurrentSpeedView(_currentSpeed),
           TabView(_distanceTraveled, _stopwatch),

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:tacho/view/AverageSpeedView.dart';
 import 'package:tacho/view/DistanceTraveledView.dart';
@@ -17,20 +15,16 @@ class TabView extends StatefulWidget {
 
 class TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
   TabController _tabController;
-  Timer _timer;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 3);
-    _timer =
-        Timer.periodic(Duration(seconds: 5), (Timer t) => _tabController.animateTo((_tabController.index + 1) % 3));
   }
 
   @override
   void dispose() {
     _tabController.dispose();
-    _timer.cancel();
     super.dispose();
   }
 
