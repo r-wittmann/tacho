@@ -7,12 +7,11 @@ class DistanceTraveledView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Text(
+    return Center(
+      child: Text(
         '${_distanceTraveled.toStringAsFixed(2)} km',
         style: TextStyle(fontSize: 36),
       ),
-      SizedBox(height: 12)
-    ]);
+    );
   }
 }

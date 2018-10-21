@@ -13,20 +13,27 @@ class StopWatchView extends StatefulWidget {
 }
 
 class StopWatchViewState extends State<StopWatchView> {
+  Timer _timer;
+
   @override
   void initState() {
     super.initState();
-    Timer.periodic(Duration(milliseconds: 100), (Timer t) => setState(() => {}));
+    _timer = Timer.periodic(Duration(milliseconds: 100), (Timer t) => setState(() => {}));
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Text(
+    return Center(
+      child: Text(
         StopWatchService.getFormattedTime(widget.stopwatch),
         style: TextStyle(fontSize: 36),
       ),
-      SizedBox(height: 12)
-    ]);
+    );
   }
 }

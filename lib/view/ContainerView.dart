@@ -5,10 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:location/location.dart';
 import 'package:screen/screen.dart';
 import 'package:tacho/services/LocationService.dart';
-import 'package:tacho/view/AverageSpeedView.dart';
 import 'package:tacho/view/CurrentSpeedView.dart';
-import 'package:tacho/view/DistanceTraveledView.dart';
-import 'package:tacho/view/StopWatchView.dart';
+import 'package:tacho/view/TabView.dart';
 
 class ContainerView extends StatefulWidget {
   @override
@@ -105,16 +103,12 @@ class ContainerViewState extends State<ContainerView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CurrentSpeedView(_currentSpeed),
-            DistanceTraveledView(_distanceTraveled),
-            StopWatchView(_stopwatch),
-            AverageSpeedView(_stopwatch, _distanceTraveled)
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          CurrentSpeedView(_currentSpeed),
+          TabView(_distanceTraveled, _stopwatch),
+        ],
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: !_tourRunning ? () => this.startTour() : () => this.endTour(),
