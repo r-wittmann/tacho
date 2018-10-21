@@ -7,8 +7,13 @@ import 'package:screen/screen.dart';
 import 'package:tacho/services/LocationService.dart';
 import 'package:tacho/view/CurrentSpeedView.dart';
 import 'package:tacho/view/TabView.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ContainerView extends StatefulWidget {
+  final SharedPreferences prefs;
+
+  ContainerView(this.prefs);
+
   @override
   State createState() => ContainerViewState();
 }
