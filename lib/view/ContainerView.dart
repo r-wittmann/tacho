@@ -30,11 +30,14 @@ class ContainerViewState extends State<ContainerView> {
   double _currentSpeed = 0.0;
   double _distanceTraveled = 0.0;
 
+  double _totalDistance = 0.0;
+
   @override
   void initState() {
     super.initState();
     Screen.keepOn(true);
     initPlatformState();
+    _totalDistance = widget.prefs.getDouble('totalDistance') ?? 0.0;
   }
 
   @override
@@ -95,7 +98,10 @@ class ContainerViewState extends State<ContainerView> {
         _currentLocation = location;
         _currentSpeed = (_currentSpeed + 2 * location['speed']) / 3;
         _distanceTraveled = _distanceTraveled + distance;
+        _totalDistance = _totalDistance + distance;
       });
+
+      widget.prefs.setDouble('totalDistance', _totalDistance);
     } else {
       _stopwatch.stop();
       setState(() {
@@ -111,7 +117,7 @@ class ContainerViewState extends State<ContainerView> {
       body: Column(
         children: <Widget>[
           CurrentSpeedView(_currentSpeed),
-          TabView(_distanceTraveled, _stopwatch),
+          TabView(_distanceTraveled, _stopwatch, _totalDistance),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

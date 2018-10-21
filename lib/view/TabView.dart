@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:tacho/view/AverageSpeedView.dart';
 import 'package:tacho/view/DistanceTraveledView.dart';
 import 'package:tacho/view/StopWatchView.dart';
+import 'package:tacho/view/TotalDistanceTraveledView.dart';
 
 class TabView extends StatefulWidget {
   final double distanceTraveled;
   final Stopwatch stopwatch;
+  final double totalDistance;
 
-  const TabView(this.distanceTraveled, this.stopwatch);
+  const TabView(this.distanceTraveled, this.stopwatch, this.totalDistance);
 
   @override
   State createState() => TabViewState();
@@ -19,7 +21,7 @@ class TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: 4);
   }
 
   @override
@@ -52,6 +54,7 @@ class TabViewState extends State<TabView> with SingleTickerProviderStateMixin {
               DistanceTraveledView(widget.distanceTraveled),
               StopWatchView(widget.stopwatch),
               AverageSpeedView(widget.stopwatch, widget.distanceTraveled),
+              TotalDistanceTraveledView(widget.totalDistance),
             ],
           ),
         ),
